@@ -1,5 +1,5 @@
 {
-    "name": "dem13n/nickname-changer",
+    "name": "simonxeko/nickname",
     "description": "Extension allows users to change nickname",
     "type": "flarum-extension",
     "license": "MIT",
@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Dem13n\\NickName\\Changer\\": "src/"
+            "Simonxeko\\NickName\\Changer\\": "src/"
         }
     },
     "extra": {
@@ -22,7 +22,7 @@
             "dev-master": "0.1.x-dev"
         },
         "flarum-extension": {
-            "title": "NickName Changer",
+            "title": "NickName Changer (Customized)",
             "icon": {
                 "name": "fas fa-id-badge",
                 "backgroundColor": "#FEC007",

@@ -10,6 +10,11 @@ app.initializers.add('dem13n-nickname-changer', () => {
 
   extend(SettingsPage.prototype, 'accountItems', function (items) {
     this.displayname = m.prop(app.session.user.displayName());
+    console.log(this.displayname);
+    if (this.displayname && this.displayname != '') {
+      let usernameLength = app.session.user.username().length;
+      this.displayname = m.prop(this.displayname().substring(usernameLength + 2, this.displayname().length - 1));
+    }
     this.username = m.prop(app.session.user.username());
     items.add('ChangeNickName',
       Button.component({
@@ -24,6 +29,11 @@ app.initializers.add('dem13n-nickname-changer', () => {
   extend(EditUserModal.prototype, 'init', function () {
     const user = this.props.user;
     this.displayname = m.prop(user.displayName() === this.username() ? '' : user.displayName());
+    console.log(this.displayname());
+    if (this.displayname() && this.displayname() != '') {
+      let usernameLength = this.username().length;
+      this.displayname = m.prop(this.displayname().substring(usernameLength + 2, this.displayname().length - 1));
+    }
   });
 
   extend(EditUserModal.prototype, 'fields', function (items) {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dem13n\NickName\Changer\Listener;
+namespace Simonxeko\NickName\Changer\Listener;
 
 use Illuminate\Contracts\Events\Dispatcher;
 use Flarum\Api\Event\Serializing;

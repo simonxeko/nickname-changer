@@ -1,6 +1,6 @@
 <?php
 
-namespace Dem13n\NickName\Changer;
+namespace Simonxeko\NickName\Changer;
 
 use Flarum\Extend;
 use Illuminate\Contracts\Events\Dispatcher;
