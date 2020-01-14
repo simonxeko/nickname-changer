@@ -5,8 +5,10 @@ use Illuminate\Database\Schema\Builder;
 
 return [
     'up' => function (Builder $schema) {
-        $schema->table('users', function (Blueprint $table) {
-            $table->string('nickname', 30)->after('username');
-        });
+        if (!Schema::hasColumn('users', 'nickname')) {
+            $schema->table('users', function (Blueprint $table) {
+                $table->string('nickname', 30)->after('username');
+            });
+        }
     }
 ];
