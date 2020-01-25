@@ -10,7 +10,7 @@ app.initializers.add('dem13n-nickname-changer', () => {
 
   extend(SettingsPage.prototype, 'accountItems', function (items) {
     this.displayname = m.prop(app.session.user.displayName());
-    if (this.displayname && this.displayname != '') {
+    if (this.displayname && this.displayname() != '') {
       let usernameLength = app.session.user.username().length;
       this.nickname = m.prop(this.displayname().substring(usernameLength + 2, this.displayname().length - 1));
     } else {
