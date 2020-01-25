@@ -26,7 +26,7 @@ export default class ChangeNickNameModal extends Modal {
               autocomplete="off"
               name="nickname"
               className="FormControl"
-              bidi={this.displayname}
+              bidi={this.nickname}
               disabled={this.loading} />
           </div>
           <div className="Form-group">
@@ -45,14 +45,18 @@ export default class ChangeNickNameModal extends Modal {
   onsubmit(e) {
     e.preventDefault();
 
-    if (this.displayname() === app.session.user.username() || (!this.displayname() && (app.session.user.displayName() === app.session.user.username()))) {
+    if (this.nickname() === app.session.user.username() || (!this.nickname() && (app.session.user.displayName() === app.session.user.username()))) {
       this.hide();
+      return;
+    }
+
+    if (!confirm("設定後無法再更改，確定？")) {
       return;
     }
 
     this.loading = true;
 
-    app.session.user.save({ nickname: this.displayname() }, {
+    app.session.user.save({ nickname: this.nickname() }, {
       errorHandler: this.onerror.bind(this),
     })
       .then(this.hide.bind(this))

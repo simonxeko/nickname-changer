@@ -41,7 +41,7 @@ app.initializers.add('dem13n-nickname-changer', () => {
       <label>{app.translator.trans('dem13n.forum.nickname.head_title')}</label>
       <input className="FormControl"
         placeholder={extractText(app.translator.trans('dem13n.forum.nickname.new_nickname'))}
-        bidi={this.nickanme} />
+        bidi={this.nickname} />
     </div>, 100);
   });
 
