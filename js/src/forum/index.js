@@ -19,7 +19,7 @@ app.initializers.add('dem13n-nickname-changer', () => {
       Button.component({
         children: app.translator.trans('dem13n.forum.nickname.change'),
         className: 'Button',
-        disabled: app.session.user.data.attributes.canPermanentNicknameChange !== true && !(app.forum.attribute('NicknameChange') == 1 || (this.username() == this.displayname())),
+        disabled: app.session.user.data.attributes.canPermanentNicknameChange !== true && !(app.forum.attribute('NicknameChange') == 1 || (this.displayname() && this.displayname().indexOf('(') > 0)),
         onclick: () => app.modal.show(new ChangeNickNameModal())
       })
     );
