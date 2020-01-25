@@ -50,7 +50,7 @@ app.initializers.add('dem13n-nickname-changer', () => {
     if (this.displayname() === this.username()) {
       this.hide();
       return;
-    } else if (this.displayname() !== m.prop(user.displayName() === this.username() ? '' : user.displayName())()) {
+    } else if (this.nickname() !== '') {
       data.nickname = this.nickname();
     }
   });
