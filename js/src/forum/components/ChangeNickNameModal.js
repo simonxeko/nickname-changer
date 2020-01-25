@@ -6,6 +6,12 @@ export default class ChangeNickNameModal extends Modal {
   init() {
     super.init();
     this.displayname = m.prop(app.session.user.displayName());
+    if (this.displayname() && this.displayname() != '') {
+      const usernameLength = app.session.user.username().length;
+      this.nickname = m.prop(this.displayname().substring(usernameLength + 2, this.displayname().length - 1));
+    } else {
+      this.nickname = m.prop('');
+    }
   }
 
   className() {
